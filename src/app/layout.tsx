@@ -80,7 +80,8 @@ export default function RootLayout({
     >
       <head>
         {/* OGP画像の事前読み込み（ファイル名そのまま） */}
-        <link rel="preload" as="image" href="/ogpLogo.jpeg" type="image/png" />
+        <link rel="preload" as="image" href="/ogpLogo.jpeg" type="image/jpeg" />
+        <meta name="google-site-verification" content="-MJUKuKrdXOupHJiGKh6n6CSd2wEY9zLoIB24dRze2U" />
       </head>
 
       <body className="relative min-h-screen bg-[#ffffff]">
@@ -111,7 +112,7 @@ export default function RootLayout({
               addressRegion: "群馬県",
               addressLocality: "渋川市行幸田",
               streetAddress: "3216-12",
-              postalCode: "377-000",
+              postalCode: "377-0006",
             },
             founder: {
               "@type": "Person",
