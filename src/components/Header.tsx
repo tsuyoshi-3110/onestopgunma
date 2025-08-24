@@ -43,6 +43,7 @@ const SNS: {
         width={32}
         height={32}
         className="object-contain"
+        unoptimized
       />
     ),
   },
@@ -56,6 +57,7 @@ const SNS: {
         width={32}
         height={32}
         className="object-contain"
+        unoptimized
       />
     ),
   },
@@ -69,6 +71,7 @@ const SNS: {
         width={32}
         height={32}
         className="object-contain"
+        unoptimized
       />
     ),
   },
@@ -121,6 +124,7 @@ export default function Header({ className = "" }: HeaderProps) {
             width={48}
             height={48}
             className="w-12 h-12 object-contain transition-opacity duration-200"
+            unoptimized
           />
         )}
         ワンストップ
