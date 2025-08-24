@@ -206,7 +206,7 @@ export default function Header({ className = "" }: HeaderProps) {
                 onClick={() => setOpen(false)}
                 className="text-lg text-white"
               >
-                アクセス
+                対応エリア
               </Link>
               <Link
                 href="/about"
