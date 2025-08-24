@@ -74,7 +74,6 @@ export const metadata: Metadata = {
     apple: "/icon.png", // ← ファイル名厳守（Apple Touch）
     shortcut: "/favicon.ico?v=4",
   },
-  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -85,7 +84,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-     className={`
+      className={`
         ${geistSans.variable} ${geistMono.variable}
         ${kosugiMaru.variable} ${notoSansJP.variable}
         ${yomogi.variable} ${hachiMaruPop.variable} ${reggaeOne.variable} ${shipporiMincho.variable}
@@ -95,7 +94,10 @@ export default function RootLayout({
       <head>
         {/* OGP画像の事前読み込み（ファイル名そのまま） */}
         <link rel="preload" as="image" href="/ogpLogo.jpeg" type="image/jpeg" />
-        <meta name="google-site-verification" content="-MJUKuKrdXOupHJiGKh6n6CSd2wEY9zLoIB24dRze2U" />
+        <meta
+          name="google-site-verification"
+          content="-MJUKuKrdXOupHJiGKh6n6CSd2wEY9zLoIB24dRze2U"
+        />
       </head>
 
       <body className="relative min-h-screen bg-[#ffffff]">
