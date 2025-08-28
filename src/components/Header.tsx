@@ -35,7 +35,7 @@ const SNS: {
 }[] = [
   {
     name: "Instagram",
-    href: "https://www.instagram.com/katazukeonestop?igsh=MWt6MGprYmp2ejE3cA%3D%3D&utm_source=qr",
+    href: "https://www.instagram.com/onestop_benriya?igsh=MWpsanIydHo3bXh3aw==",
     icon: () => (
       <Image
         src="/instagram-logo.png"
