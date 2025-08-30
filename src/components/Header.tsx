@@ -232,6 +232,13 @@ export default function Header({ className = "" }: HeaderProps) {
               >
                 ご連絡はこちら
               </Link>
+               <Link
+                href="/blog"
+                className="hover:underline text-white"
+                onClick={() => setOpen(false)}
+              >
+                取材はこちら
+              </Link>
               <Link
                 href="/jobApp"
                 onClick={() => setOpen(false)}
@@ -239,6 +246,7 @@ export default function Header({ className = "" }: HeaderProps) {
               >
                 協力業者募集！
               </Link>
+
             </div>
             {/* ▼ ログインだけ下に固定 */}
 
