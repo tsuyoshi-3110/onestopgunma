@@ -148,7 +148,7 @@ export default function Header({ className = "" }: HeaderProps) {
       {/* スマホハンバーガー */}
       <div>
         {/* open / onOpenChange を指定 */}
-        <Sheet open={open} onOpenChange={setOpen}>
+        <Sheet open={open} onOpenChange={setOpen} >
           <SheetTrigger asChild>
             <Button
               variant="ghost"
@@ -172,7 +172,7 @@ export default function Header({ className = "" }: HeaderProps) {
               gradient && "bg-gradient-to-b", // gradient があれば方向クラス
               gradient, // 実際の gradient 色クラス
               "[&_[data-radix-sheet-close]]:w-10 [&_[data-radix-sheet-close]]:h-10",
-              "[&_[data-radix-sheet-close]_svg]:w-6 [&_[data-radix-sheet-close]_svg]:h-6"
+              "[&_[data-radix-sheet-close]_svg]:w-6 [&_[data-radix-sheet-close]_svg]:h-6",
             )}
           >
             <SheetHeader className="pt-4 px-4">
