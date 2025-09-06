@@ -51,7 +51,6 @@ import { CSS } from "@dnd-kit/utilities";
 import { writeBatch } from "firebase/firestore";
 import { motion, useInView } from "framer-motion";
 
-
 const STORE_COL = `siteStores/${SITE_KEY}/items`;
 const STORAGE_PATH = `stores/public/${SITE_KEY}`;
 
