@@ -86,7 +86,7 @@ export function PhoneSection() {
   return (
     <section className="max-w-4xl mx-auto text-center mb-12">
       {phone && (
-        <h2 className="text-3xl font-bold text-white/80 mb-2">
+        <h2 className="text-3xl font-bold text-white/80 mb-2 text-outline">
           ご注文はこちら
         </h2>
       )}
@@ -97,7 +97,7 @@ export function PhoneSection() {
             <a
               href={`tel:${phone}`}
               className={clsx(
-                "text-2xl md:text-3xl font-extrabold text-white",
+                "text-2xl md:text-3xl font-extrabold text-white text-outline",
                 `bg-gradient-to-br ${gradient}`,
                 "px-6 py-3 rounded-xl inline-block", // 👈 ここが超重要！
                 "hover:bg-pink-700 transition"
