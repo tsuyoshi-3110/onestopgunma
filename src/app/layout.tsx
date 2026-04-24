@@ -1,14 +1,13 @@
 // app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Script from "next/script";
 import ThemeBackground from "@/components/ThemeBackground";
 import WallpaperBackground from "@/components/WallpaperBackground";
 import SubscriptionOverlay from "@/components/SubscriptionOverlay";
-import { SITE_KEY } from "@/lib/atoms/siteKeyAtom";
 
+import { SITE_KEY } from "@/lib/atoms/siteKeyAtom";
 import {
   kosugiMaru,
   notoSansJP,
@@ -18,11 +17,7 @@ import {
   hachiMaruPop,
 } from "@/lib/font";
 
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-});
+
 
 export const metadata: Metadata = {
   title: "ワンストップ｜便利屋サービス",
@@ -84,12 +79,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`
-        ${geistSans.variable} ${geistMono.variable}
-        ${kosugiMaru.variable} ${notoSansJP.variable}
-        ${yomogi.variable} ${hachiMaruPop.variable} ${reggaeOne.variable} ${shipporiMincho.variable}
-        antialiased
-      `}
+      className={`${kosugiMaru.variable} ${notoSansJP.variable} ${shipporiMincho.variable} ${reggaeOne.variable} ${yomogi.variable} ${hachiMaruPop.variable} antialiased`}
     >
       <head>
         {/* OGP画像の事前読み込み（ファイル名そのまま） */}

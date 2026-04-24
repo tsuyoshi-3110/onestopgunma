@@ -105,7 +105,7 @@ export default function Header({ className = "" }: HeaderProps) {
         "sticky top-0 z-30 flex items-center justify-between px-4 h-12",
         gradientClass,
         isLightBg && "border-b border-gray-300", // 明るい場合アンダーバー
-        className
+        className,
       )}
       style={{ "--header-h": HEADER_H } as React.CSSProperties}
     >
@@ -114,7 +114,7 @@ export default function Header({ className = "" }: HeaderProps) {
         href="/"
         className={clsx(
           "text-xl font-bold flex items-center gap-2 py-2 hover:opacity-50",
-          isLightBg ? "text-black" : "text-white"
+          isLightBg ? "text-black" : "text-white",
         )}
       >
         {logoUrl && logoUrl.trim() !== "" && (
@@ -148,7 +148,7 @@ export default function Header({ className = "" }: HeaderProps) {
       {/* スマホハンバーガー */}
       <div>
         {/* open / onOpenChange を指定 */}
-        <Sheet open={open} onOpenChange={setOpen} >
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
@@ -157,7 +157,7 @@ export default function Header({ className = "" }: HeaderProps) {
                 "w-7 h-7 border-2",
                 isLightBg
                   ? "text-black border-black"
-                  : "text-white border-white"
+                  : "text-white border-white",
               )}
             >
               <Menu size={26} />
@@ -232,12 +232,19 @@ export default function Header({ className = "" }: HeaderProps) {
               >
                 ご連絡はこちら
               </Link>
-               <Link
+              <Link
                 href="/blog"
                 className="hover:underline text-white"
                 onClick={() => setOpen(false)}
               >
                 取材はこちら
+              </Link>
+              <Link
+                href="/blog2"
+                className="hover:underline text-white"
+                onClick={() => setOpen(false)}
+              >
+                ブログ
               </Link>
               <Link
                 href="/jobApp"
@@ -246,7 +253,6 @@ export default function Header({ className = "" }: HeaderProps) {
               >
                 協力業者募集！
               </Link>
-
             </div>
             {/* ▼ ログインだけ下に固定 */}
 
@@ -258,7 +264,7 @@ export default function Header({ className = "" }: HeaderProps) {
                     onClick={() => setOpen(false)}
                     className={clsx(
                       "block text-center text-lg",
-                      gradient ? "text-white" : "text-black"
+                      gradient ? "text-white" : "text-black",
                     )}
                   >
                     タイムライン
@@ -268,7 +274,7 @@ export default function Header({ className = "" }: HeaderProps) {
                     onClick={() => setOpen(false)}
                     className={clsx(
                       "block text-center text-lg",
-                      gradient ? "text-white" : "text-black"
+                      gradient ? "text-white" : "text-black",
                     )}
                   >
                     コミュニティ
@@ -278,7 +284,7 @@ export default function Header({ className = "" }: HeaderProps) {
                     onClick={() => setOpen(false)}
                     className={clsx(
                       "block text-center text-lg",
-                      gradient ? "text-white" : "text-black"
+                      gradient ? "text-white" : "text-black",
                     )}
                   >
                     分析
@@ -291,7 +297,7 @@ export default function Header({ className = "" }: HeaderProps) {
                 onClick={() => setOpen(false)}
                 className={clsx(
                   "block text-center text-lg",
-                  gradient ? "text-white" : "text-black" // ← ここで切り替え
+                  gradient ? "text-white" : "text-black", // ← ここで切り替え
                 )}
               >
                 Administrator Login
