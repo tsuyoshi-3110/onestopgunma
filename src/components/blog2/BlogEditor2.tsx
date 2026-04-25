@@ -19,8 +19,6 @@ import { useRouter } from "next/navigation";
 import {
   ref,
   deleteObject,
-  getDownloadURL,
-  uploadBytes,
 } from "firebase/storage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,59 +46,20 @@ function pruneUndefined<T>(obj: T): T {
   return obj as any;
 }
 
-/** temp配下のメディアを posts/{postId}/ に移動しつつ進捗を報告 */
+/**
+ * CORS回避のため、ブラウザ側で Storage の downloadURL を fetch して
+ * temp から posts/{postId}/ へコピーする処理は行わない。
+ *
+ * Firebase Storage にはクライアントSDKだけで安全に「移動/コピー」するAPIがないため、
+ * ここではアップロード済みの path/url をそのまま記事に保存する。
+ */
 async function moveTempBlocksToPostIdWithProgress(
-  postId: string,
+  _postId: string,
   blocks: BlogBlock[],
   onProgress?: (info: { moved: number; total: number; pct: number; label: string }) => void
 ): Promise<BlogBlock[]> {
-  const result: BlogBlock[] = [];
-  const targets = blocks.filter(
-    (b) =>
-      (b.type === "image" || b.type === "video") &&
-      typeof (b as any).path === "string" &&
-      (b as any).path.includes("/posts/temp/")
-  );
-  const total = targets.length;
-
-  let moved = 0;
-  const emit = (label: string) => {
-    const pct = total === 0 ? 100 : Math.min(100, Math.round(((moved) / total) * 100));
-    onProgress?.({ moved, total, pct, label });
-  };
-
-  for (const b of blocks) {
-    if (!(b.type === "image" || b.type === "video")) {
-      result.push(b);
-      continue;
-    }
-    const path = (b as any).path as string | undefined;
-    if (!path || !path.includes("/posts/temp/")) {
-      result.push(b);
-      continue;
-    }
-
-    // 1件ずつ移動
-    emit(`メディア移動中… ${moved + 1}/${total}`);
-    const oldRef = ref(storage, path);
-    const blob = await fetch(await getDownloadURL(oldRef)).then((r) => r.blob());
-    const newPath = path.replace("/posts/temp/", `/posts/${postId}/`);
-    const newRef = ref(storage, newPath);
-    await uploadBytes(newRef, blob, { contentType: blob.type });
-    const newUrl = await getDownloadURL(newRef);
-
-    // 古いオブジェクトは削除（失敗は無視）
-    try {
-      await deleteObject(oldRef);
-    } catch {}
-
-    result.push({ ...(b as any), path: newPath, url: newUrl });
-    moved++;
-    emit(`メディア移動中… ${moved}/${total}`);
-  }
-
-  emit("最終処理中…");
-  return result;
+  onProgress?.({ moved: 0, total: 0, pct: 100, label: "メディア確認完了" });
+  return blocks;
 }
 
 export default function BlogEditor({ postId }: Props) {
