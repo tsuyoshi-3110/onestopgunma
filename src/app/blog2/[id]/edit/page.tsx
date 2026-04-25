@@ -2,7 +2,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import BlogEditor from "@/components/blog/BlogEditor";
+import BlogEditor2 from "@/components/blog2/BlogEditor2";
 import { useThemeGradient } from "@/lib/useThemeGradient";
 import { THEMES, ThemeKey } from "@/lib/themes";
 import clsx from "clsx";
@@ -22,11 +22,11 @@ export default function BlogEditPage() {
     <div
       className={clsx(
         "max-w-3xl mx-auto p-4 space-y-6",
-        isDark ? "text-white" : "text-black"
+        isDark ? "text-white" : "text-black",
       )}
     >
       <h1 className="text-xl font-bold">投稿を編集</h1>
-      <BlogEditor postId={id} />
+      <BlogEditor2 postId={id} />
     </div>
   );
 }

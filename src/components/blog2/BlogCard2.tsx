@@ -134,7 +134,7 @@ export default function BlogCard({
         {isLoggedIn && (
           <div className="pt-2 flex items-center gap-2">
             <Button asChild size="sm" variant={isDark ? "secondary" : "default"}>
-              <Link href={`/blog/${post.id}/edit`}>
+              <Link href={`/blog2/${post.id}/edit`}>
                 <Pencil className="mr-1.5 h-4 w-4" />
                 編集
               </Link>

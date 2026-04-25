@@ -10,6 +10,7 @@ import {
   serverTimestamp,
   updateDoc,
   deleteDoc,
+  setDoc,
 } from "firebase/firestore";
 import { db, storage } from "@/lib/firebase";
 import { SITE_KEY } from "@/lib/atoms/siteKeyAtom";
@@ -189,12 +190,12 @@ export default function BlogEditor({ postId }: Props) {
           .trim();
 
         const refDoc = doc(db, "siteBlogs2", SITE_KEY, "posts", postId);
-        await updateDoc(refDoc, {
+        await setDoc(refDoc, {
           title: title ?? "",
           body: plain,
           blocks: pruneUndefined(movedBlocks),
           updatedAt: serverTimestamp(),
-        });
+        }, { merge: true });
 
         updateSaveModal({ label: "完了", pct: 100 });
       } else {

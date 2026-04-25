@@ -13,8 +13,8 @@ export default function BlogNewPage() {
     gradient &&
     DARK_KEYS.includes(
       Object.keys(THEMES).find(
-        (k) => THEMES[k as ThemeKey] === gradient
-      ) as ThemeKey
+        (k) => THEMES[k as ThemeKey] === gradient,
+      ) as ThemeKey,
     );
 
   const textColorClass = isDark ? "text-white" : "text-black";

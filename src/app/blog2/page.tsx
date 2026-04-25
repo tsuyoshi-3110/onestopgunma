@@ -17,7 +17,7 @@ import { db, storage } from "@/lib/firebase";
 import { BlogPost } from "@/types/blog";
 import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 import { SITE_KEY } from "@/lib/atoms/siteKeyAtom";
-import BlogCard from "@/components/blog/BlogCard";
+import BlogCard2 from "@/components/blog2/BlogCard2";
 import Link from "next/link";
 import { auth } from "@/lib/firebase";
 import { onAuthStateChanged, type User } from "firebase/auth";
@@ -179,7 +179,7 @@ export default function BlogListPage() {
         <>
           <div className="grid gap-6 sm:grid-cols-1 justify-items-center">
             {posts.map((p) => (
-              <BlogCard
+              <BlogCard2
                 key={p.id}
                 post={p}
                 onDelete={handleDelete}
